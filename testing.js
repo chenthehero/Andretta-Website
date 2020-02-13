@@ -2,35 +2,32 @@
     2/13/2020
     This is a test file for random scripting
 */
+  
+var divToChange = document.getElementById('Eric');
+var paragraph = document.getElementById('Eric').innerHTML;
+  
 
-function sec(times) {
+function specialDiv(number) {
 
-    var repeatedString = 'Mod 5 is ';
-    var notZero = 'Not Zero';
-    var zero = 'Zero'
-  
-  
-    while (times > 0) {
-      if (times % 5 == 0) {
-        console.log(repeatedString + zero);
-      } else {
-        console.log(repeatedString + notZero);
-      }
-      times--;
-    }
-  
-    return true;
-  }
-  
-  
-  var container = document.getElementById('Eric');
-  
-  function block(mClass, html) {
-      return '<div class="' + mClass + '">' + html + '</div>';
-  }
-  
-  for (var i = 0; i < 3; i++) {
-      container.innerHTML += block('block', 'data');
+  var returnDiv
+
+  if (number % 5 == 0) {
+    returnDiv = '<div>' + number + ' is divisible by 5</div>'
+  } else {
+    returnDiv = '<div>'+ number + ' is not divisible by 5</div>'
   }
 
-  console.log('Hello');
+  return returnDiv;
+}
+
+function repeater(count) {
+  while (count >= 0) {
+      divToChange.innerHTML += specialDiv(count);
+    count--;
+  }
+}
+
+repeater(16);
+console.log('Value: ' + paragraph);
+
+  
